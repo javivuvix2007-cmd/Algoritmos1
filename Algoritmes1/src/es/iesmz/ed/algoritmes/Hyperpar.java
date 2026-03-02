@@ -1,13 +1,21 @@
 package es.iesmz.ed.algoritmes;
 
 public class Hyperpar {
-    long variable;
+    public static boolean esHyperpar(int numero) {
+        numero = Math.abs(numero);
 
-    public Hyperpar(long variable) {
-        this.variable = variable;
-    }
+        if (numero == 0) {
+            return true;
+        }
 
-    public boolean esHyperPar(long variable) {
-        return variable % 2 == 0;
+        while (numero > 0) {
+            int digito = numero % 10;
+
+            if (digito % 2 != 0) {
+                return false;
+            }
+            numero /= 10;
+        }
+        return true;
     }
 }
